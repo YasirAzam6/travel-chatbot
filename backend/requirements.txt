@@ -1,2 +1,9 @@
 fastapi
 uvicorn
+httpx
+python-dotenv
+pydantic
+requests
+jinja2
+aiofiles
+google-generativeai
