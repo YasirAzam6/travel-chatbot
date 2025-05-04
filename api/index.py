@@ -217,10 +217,11 @@ async def chat_endpoint(
     image_urls = await get_images_from_unsplash(image_search_query, count=3)
 
     response_data = ChatResponse(
-        session_id=session_id,
-        bot_response=bot_response_text,
-        image_urls=image_urls,
-    )
+    session_id=session_id,
+    bot_response=bot_response_text,
+    image_urls=image_urls
+)
+
     return response_data
 
 @app.get("/")
