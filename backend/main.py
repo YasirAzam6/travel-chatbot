@@ -8,6 +8,8 @@ import google.generativeai as genai
 import httpx
 import asyncio
 from mangum import Mangum
+from fastapi.responses import JSONResponse
+
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -238,6 +240,10 @@ async def health_check():
     elif not GOOGLE_API_KEY:
         ai_status = "disabled_no_key"
     return {"status": "ok", "ai_status": ai_status}
+
+@app.get("/")
+def read_root():
+    return JSONResponse(content={"message": "Hello from FastAPI on Vercel!"})
 
 if __name__ == "__main__":
     import uvicorn
