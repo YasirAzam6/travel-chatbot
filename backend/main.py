@@ -1,6 +1,7 @@
 import os
 import uuid
 from typing import List, Dict, Any, Optional, Tuple
+from fastapi.middleware.cors import CORSMiddleware
 
 from fastapi import FastAPI, HTTPException, Request
 from pydantic import BaseModel, Field
@@ -75,6 +76,15 @@ app = FastAPI(
     title="Pakistan Northern Areas Travel Chatbot",
     description="A chatbot focused on travel, specifically promoting Northern Pakistan, with history and image features.",
     version="1.0.0",
+)
+
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Replace with frontend domain on production
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 if ChatSessionMiddleware:
