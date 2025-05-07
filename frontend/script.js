@@ -67,7 +67,7 @@ const chatbotActivate = () => {
 
   //@FIXME: should be handled by backend app
   const generateResponse = (li, message) => {
-    const API_URL = "http://localhost:8000/api/chat";
+    const API_URL = "http://localhost:8000/chat";
     const messageElement = li.querySelector("p");
 
     const requestOptions = {
